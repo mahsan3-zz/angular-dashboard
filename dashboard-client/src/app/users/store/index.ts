@@ -4,7 +4,7 @@ import {UsersState} from "./users.reducers";
 
 export const SLICE_ID_USERS = 'users';
 
-export interface UsersInfoState extends CoreState{
+export interface UsersInfoState extends CoreState {
   SLICE_ID_USERS: UsersState
 }
 
