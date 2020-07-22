@@ -24,7 +24,7 @@ export class UsersContainerComponent implements OnInit, OnDestroy {
           {cols: 3, rows: 1},
           {cols: 3, rows: 1}
         ];
-      }else {
+      }else { // greater than 650px
         this.tiles = [
           {cols: 3, rows: 1},
           {cols: 1, rows: 1},
@@ -33,7 +33,7 @@ export class UsersContainerComponent implements OnInit, OnDestroy {
       }
       console.log('[x] Breakpoint Observable');
       console.log(v);
-    })
+    });
   }
 
   ngOnInit(): void {}
