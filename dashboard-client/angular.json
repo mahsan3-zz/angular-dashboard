@@ -129,6 +129,7 @@
   },
   "defaultProject": "dashboard-client",
   "cli": {
-    "analytics": "0b8a9393-5687-4efc-8f8f-3691b01ea84c"
+    "analytics": "0b8a9393-5687-4efc-8f8f-3691b01ea84c",
+    "defaultCollection": "@ngrx/schematics"
   }
 }
