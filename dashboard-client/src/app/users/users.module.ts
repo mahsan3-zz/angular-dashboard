@@ -7,6 +7,8 @@ import {CommonModule} from "@angular/common";
 import { StoreModule } from '@ngrx/store';
 import {SLICE_ID_USERS} from "./store";
 import {usersReducers} from "./store/users.reducers";
+import {EffectsModule} from "@ngrx/effects";
+import {UsersEffects} from "./store/users.effects";
 
 
 @NgModule({
@@ -15,7 +17,8 @@ import {usersReducers} from "./store/users.reducers";
     CommonModule,
     MaterialModule,
     UsersRoutingModule,
-    StoreModule.forFeature(SLICE_ID_USERS, usersReducers)
+    StoreModule.forFeature(SLICE_ID_USERS, usersReducers),
+    EffectsModule.forFeature([UsersEffects])
   ]
 })
 export class UsersModule { }
