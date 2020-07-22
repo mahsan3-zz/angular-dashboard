@@ -1,6 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav mode="side" opened>
     <mat-selection-list [multiple]="false">
+
       <mat-list-option [value]="'Home'" [routerLink]="['welcome-page']">
         <span class="icon-text">
           <mat-icon
@@ -9,8 +10,18 @@
           </mat-icon>
           <p>Home</p>
         </span>
-
       </mat-list-option>
+
+      <mat-list-option [value]="'Users'" [routerLink]="['users']">
+        <span class="icon-text">
+          <mat-icon
+            [inline]="true" aria-hidden="false" aria-label="home icon">
+            supervised_user_circle
+          </mat-icon>
+          <p>Users</p>
+        </span>
+      </mat-list-option>
+
     </mat-selection-list>
   </mat-sidenav>
 
