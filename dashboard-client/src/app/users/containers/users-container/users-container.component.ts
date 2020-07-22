@@ -1,9 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {BreakpointObserver} from "@angular/cdk/layout";
-import {Subscription} from "rxjs";
+import {Observable, Subscription} from "rxjs";
 import {CoreState} from "../../../core/store";
-import {Store} from "@ngrx/store";
+import {select, Store} from "@ngrx/store";
 import {LoadUserStats} from "../../store/users.actions";
+import {getAverageSession, getNewContentUploaded, getRegistrationsToday, isLoading} from "../../store";
 
 export interface Tile {
   cols: number;
@@ -19,8 +20,17 @@ export interface Tile {
 export class UsersContainerComponent implements OnInit, OnDestroy {
   tiles: Tile[];
   breakPointSub$: Subscription;
+  registrationsToday$: Observable<number>;
+  newContentUploaded$: Observable<number>;
+  averageSession$: Observable<string>;
+  isLoading$: Observable<boolean>;
 
   constructor(breakpointObserver: BreakpointObserver, private store: Store<CoreState>) {
+
+    this.registrationsToday$ = this.store.pipe(select(getRegistrationsToday));
+    this.newContentUploaded$ = this.store.pipe(select(getNewContentUploaded));
+    this.averageSession$ = this.store.pipe(select(getAverageSession));
+    this.isLoading$ = this.store.pipe(select(isLoading));
 
     this.breakPointSub$ = breakpointObserver.observe('(max-width: 650px)').subscribe(v => {
       if(v.matches) { // less than 650px
