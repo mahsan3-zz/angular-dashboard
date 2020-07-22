@@ -8,6 +8,7 @@ import {LoadUserStats} from "../../store/users.actions";
 export interface Tile {
   cols: number;
   rows: number;
+  component: string;
 }
 
 @Component({
@@ -24,15 +25,15 @@ export class UsersContainerComponent implements OnInit, OnDestroy {
     this.breakPointSub$ = breakpointObserver.observe('(max-width: 650px)').subscribe(v => {
       if(v.matches) { // less than 650px
         this.tiles = [
-          {cols: 3, rows: 1},
-          {cols: 3, rows: 1},
-          {cols: 3, rows: 1}
+          {cols: 3, rows: 1, component: 'registrations'},
+          {cols: 3, rows: 1, component: 'new-content'},
+          {cols: 3, rows: 1, component: 'average-session'}
         ];
       }else { // greater than 650px
         this.tiles = [
-          {cols: 3, rows: 1},
-          {cols: 1, rows: 1},
-          {cols: 2, rows: 1}
+          {cols: 3, rows: 1, component: 'registrations'},
+          {cols: 1, rows: 1, component: 'new-content'},
+          {cols: 2, rows: 1, component: 'average-session'}
         ];
       }
       console.log('[x] Breakpoint Observable');

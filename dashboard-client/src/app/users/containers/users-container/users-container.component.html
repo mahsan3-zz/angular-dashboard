@@ -5,6 +5,15 @@
     <mat-grid-tile *ngFor="let tile of tiles"
                    [colspan]="tile.cols"
                    [rowspan]="tile.rows">
+
+      <ng-container [ngSwitch]="tile.component">
+
+        <app-new-registrations *ngSwitchCase="'registrations'"></app-new-registrations>
+        <app-new-content *ngSwitchCase="'new-content'"></app-new-content>
+        <app-average-session *ngSwitchCase="'average-session'"></app-average-session>
+
+      </ng-container>
+
     </mat-grid-tile>
   </mat-grid-list>
 
