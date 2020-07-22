@@ -9,10 +9,13 @@ import {SLICE_ID_USERS} from "./store";
 import {usersReducers} from "./store/users.reducers";
 import {EffectsModule} from "@ngrx/effects";
 import {UsersEffects} from "./store/users.effects";
+import { NewRegistrationsComponent } from './components/new-registrations/new-registrations.component';
+import { NewContentComponent } from './components/new-content/new-content.component';
+import { AverageSessionComponent } from './components/average-session/average-session.component';
 
 
 @NgModule({
-  declarations: [UsersContainerComponent],
+  declarations: [UsersContainerComponent, NewRegistrationsComponent, NewContentComponent, AverageSessionComponent],
   imports: [
     CommonModule,
     MaterialModule,
