@@ -1,6 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {Subscription} from "rxjs";
+import {CoreState} from "../../../core/store";
+import {Store} from "@ngrx/store";
+import {LoadUserStats} from "../../store/users.actions";
 
 export interface Tile {
   cols: number;
@@ -16,7 +19,8 @@ export class UsersContainerComponent implements OnInit, OnDestroy {
   tiles: Tile[];
   breakPointSub$: Subscription;
 
-  constructor(breakpointObserver: BreakpointObserver) {
+  constructor(breakpointObserver: BreakpointObserver, private store: Store<CoreState>) {
+
     this.breakPointSub$ = breakpointObserver.observe('(max-width: 650px)').subscribe(v => {
       if(v.matches) { // less than 650px
         this.tiles = [
@@ -34,9 +38,12 @@ export class UsersContainerComponent implements OnInit, OnDestroy {
       console.log('[x] Breakpoint Observable');
       console.log(v);
     });
+
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store.dispatch(new LoadUserStats());
+  }
 
   ngOnDestroy(): void {
     this.breakPointSub$.unsubscribe();
