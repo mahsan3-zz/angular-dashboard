@@ -1,0 +1,12 @@
+.sidenav-container {
+  height: 100%;
+
+  .icon-text {
+    display: flex;
+    vertical-align: middle;
+
+    > p {
+      margin: 0;
+    }
+  }
+}
