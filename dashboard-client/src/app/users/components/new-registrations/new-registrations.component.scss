@@ -1,0 +1,20 @@
+:host {
+  height:100%;
+  width: 100%;
+
+  .new-registration-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+
+    > mat-icon.person-add-icon {
+      font-size: 7rem;
+      height: 7rem;
+      width: auto;
+    }
+
+  }
+}
+

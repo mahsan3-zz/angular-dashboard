@@ -8,7 +8,8 @@
 
       <ng-container [ngSwitch]="tile.component">
 
-        <app-new-registrations *ngSwitchCase="'registrations'"></app-new-registrations>
+        <app-new-registrations *ngSwitchCase="'registrations'"
+                               [newRegistrationsCount]="registrationsToday$ | async"></app-new-registrations>
         <app-new-content *ngSwitchCase="'new-content'"></app-new-content>
         <app-average-session *ngSwitchCase="'average-session'"></app-average-session>
 

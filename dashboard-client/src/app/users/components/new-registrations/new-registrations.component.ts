@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-new-registrations',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-registrations.component.scss']
 })
 export class NewRegistrationsComponent implements OnInit {
+
+  @Input() newRegistrationsCount: number;
 
   constructor() { }
 
