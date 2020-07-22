@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MaterialModuleModule} from "./material-module/material-module.module";
+import {MaterialModule} from "./material-module/material.module";
 import { WelcomePageModule } from './welcome-page/welcome-page.module';
 
 @NgModule({
@@ -15,7 +15,7 @@ import { WelcomePageModule } from './welcome-page/welcome-page.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModuleModule,
+    MaterialModule,
     WelcomePageModule
   ],
   providers: [],
