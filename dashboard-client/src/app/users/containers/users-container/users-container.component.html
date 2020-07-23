@@ -1,23 +1,28 @@
 <div class="users-container">
   <h1>Users</h1>
+  <ng-container *ngIf="(isLoading$ | async);else mainContent">
+    Loading...
+  </ng-container>
 
-  <mat-grid-list cols="3" [gutterSize]="'1rem'" rowHeight="250px">
-    <mat-grid-tile *ngFor="let tile of tiles"
-                   [colspan]="tile.cols"
-                   [rowspan]="tile.rows">
+  <ng-template #mainContent>
+    <mat-grid-list cols="3" [gutterSize]="'1rem'" rowHeight="250px">
+      <mat-grid-tile *ngFor="let tile of tiles"
+                     [colspan]="tile.cols"
+                     [rowspan]="tile.rows">
 
-      <ng-container [ngSwitch]="tile.component">
+        <ng-container [ngSwitch]="tile.component">
 
-        <app-new-registrations *ngSwitchCase="'registrations'"
-                               [newRegistrationsCount]="registrationsToday$ | async"></app-new-registrations>
-        <app-new-content *ngSwitchCase="'new-content'"
-                         [newContentCount]="newContentUploaded$ | async"></app-new-content>
-        <app-average-session *ngSwitchCase="'average-session'"
-                             [averageSessions]="averageSession$ | async"></app-average-session>
+          <app-new-registrations *ngSwitchCase="'registrations'"
+                                 [newRegistrationsCount]="registrationsToday$ | async"></app-new-registrations>
+          <app-new-content *ngSwitchCase="'new-content'"
+                           [newContentCount]="newContentUploaded$ | async"></app-new-content>
+          <app-average-session *ngSwitchCase="'average-session'"
+                               [averageSessions]="averageSession$ | async"></app-average-session>
 
-      </ng-container>
+        </ng-container>
 
-    </mat-grid-tile>
-  </mat-grid-list>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </ng-template>
 
 </div>
