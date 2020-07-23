@@ -10,6 +10,6 @@ export class UsersServiceService {
   constructor(private http: HttpClient) { }
 
   getUserStats(): Observable<any> {
-    return this.http.get('/userStats');
+    return this.http.get('/api/userStats');
   }
 }
