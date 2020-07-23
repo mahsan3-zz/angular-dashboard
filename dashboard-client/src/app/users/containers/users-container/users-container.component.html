@@ -10,7 +10,8 @@
 
         <app-new-registrations *ngSwitchCase="'registrations'"
                                [newRegistrationsCount]="registrationsToday$ | async"></app-new-registrations>
-        <app-new-content *ngSwitchCase="'new-content'"></app-new-content>
+        <app-new-content *ngSwitchCase="'new-content'"
+                         [newContentCount]="newContentUploaded$ | async"></app-new-content>
         <app-average-session *ngSwitchCase="'average-session'"
                              [averageSessions]="averageSession$ | async"></app-average-session>
 
